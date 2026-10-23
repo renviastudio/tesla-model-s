@@ -1,0 +1,11 @@
+node_modules
+dist
+tmp-build
+reference-crops
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.log
+.cursor/
+.cursorignore

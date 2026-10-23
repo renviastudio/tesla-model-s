@@ -1,0 +1,1408 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tesla | مدل S</title>
+    <style>
+/* VAZIRMATN_FONTS */
+
+html {
+  direction: rtl;
+  margin: 0;
+  min-height: 100%;
+  background: #ffffff;
+  border: 0;
+  outline: 0;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #ffffff;
+  color: #171717;
+  font-family: Vazirmatn, Tahoma, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button,
+input,
+label,
+summary,
+a {
+  font-family: inherit;
+}
+
+::selection {
+  background: #171717;
+  color: #fff;
+}
+
+.mixed {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.ctrl {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  pointer-events: none;
+  border: 0;
+  appearance: none;
+}
+
+.page {
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  direction: ltr;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  color: #171717;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  gap: 0.52em;
+}
+
+.wordmark span {
+  line-height: 1;
+}
+
+.mobile-nav {
+  display: flex;
+  height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ececec;
+  padding: 0 16px;
+}
+
+.desktop-nav,
+.panel-toolbar {
+  display: none;
+}
+
+.nav-cluster {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drop {
+  position: relative;
+}
+
+.drop > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #2a2a2a;
+  font-size: 13px;
+}
+
+.drop > summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-btn > summary {
+  width: 32px;
+  height: 32px;
+  justify-content: center;
+  gap: 0;
+}
+
+.dots-icon {
+  display: grid;
+  grid-template-columns: 3.5px 3.5px;
+  gap: 3.5px;
+}
+
+.dots-icon i {
+  display: block;
+  width: 3.5px;
+  height: 3.5px;
+  border-radius: 50%;
+  background: #222;
+}
+
+.drop-menu {
+  position: absolute;
+  z-index: 30;
+  top: 40px;
+  width: 176px;
+  border-radius: 8px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  padding: 4px 0;
+  text-align: right;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  direction: rtl;
+}
+
+.lang-menu {
+  left: 0;
+  width: 112px;
+}
+
+.lang-menu.desktop {
+  right: 0;
+  left: auto;
+  top: 36px;
+  width: 128px;
+  border-color: #e4e4e4;
+}
+
+.drop-menu a,
+.drop-menu span {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 16px;
+  font-size: 13px;
+  color: #171717;
+  text-decoration: none;
+}
+
+.drop-menu a:hover {
+  background: #fafafa;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.product {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 4px 20px 8px;
+}
+
+.tesla-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #2b2b2b;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.model-title {
+  margin: 6px 0 0;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 500;
+  color: #171717;
+}
+
+.crumbs {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #9a9a9a;
+}
+
+.crumbs svg {
+  color: #b0b0b0;
+}
+
+.price-block {
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.price {
+  margin: 0;
+  text-align: right;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: 500;
+  color: #171717;
+}
+
+.euro {
+  margin-inline-end: 3px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.price-val {
+  display: none;
+}
+
+.cash {
+  margin: 8px 0 0;
+  text-align: right;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.gallery {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.stage {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  min-height: 220px;
+}
+
+.car {
+  display: none;
+  width: 86%;
+  max-width: 820px;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.gallery-bar {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 34px 1fr 34px;
+  align-items: center;
+  padding: 0 16px 20px;
+}
+
+.side {
+  position: relative;
+  width: 34px;
+  height: 34px;
+}
+
+.round-btn {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #d4d4d4;
+  color: #555;
+  background: #fff;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.round-btn:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+
+.dot {
+  display: flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ring {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.swatch {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.specs {
+  min-width: 0;
+  background: #f0f0f2;
+  border-top: 1px solid #e4e4e6;
+}
+
+.specs-inner {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 20px 16px;
+}
+
+.specs-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e2e5;
+  padding-bottom: 14px;
+}
+
+.specs-head h2 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1;
+  font-weight: 500;
+  color: #171717;
+}
+
+.variant-tabs {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 2px;
+}
+
+.variant-tabs label {
+  font-size: 12.5px;
+  letter-spacing: 0.025em;
+  font-weight: 500;
+  color: #a4a4a4;
+  cursor: pointer;
+}
+
+.variant-tabs label:hover {
+  color: #555;
+}
+
+.spec-set {
+  display: none;
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 20px;
+}
+
+.spec-row.second {
+  margin-top: 18px;
+  border-top: 1px solid #e2e2e5;
+  padding-top: 18px;
+}
+
+.spec-item p {
+  margin: 0;
+  text-align: right;
+}
+
+.spec-label {
+  font-size: 11.5px;
+  line-height: 20px;
+  color: #8a8a8a;
+}
+
+.spec-value {
+  margin-top: 3px !important;
+  font-size: 13.5px;
+  line-height: 1.55;
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.more {
+  margin-top: 24px;
+}
+
+.more > summary {
+  list-style: none;
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #3d3d3d;
+  cursor: pointer;
+}
+
+.more > summary::-webkit-details-marker {
+  display: none;
+}
+
+.more > summary:hover {
+  color: #111;
+}
+
+.more .ico-minus {
+  display: none;
+}
+
+.more[open] .ico-plus {
+  display: none;
+}
+
+.more[open] .ico-minus {
+  display: block;
+}
+
+.more-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 16px;
+  row-gap: 20px;
+  border-top: 1px solid #e2e2e5;
+  padding-top: 16px;
+}
+
+.acc-wrap {
+  margin-top: 24px;
+}
+
+.acc {
+  border-top: 1px solid #e1e1e4;
+}
+
+.acc > summary {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.acc > summary::-webkit-details-marker {
+  display: none;
+}
+
+.acc-title {
+  font-size: 15.5px;
+  font-weight: 500;
+  color: #171717;
+}
+
+.chev-wrap {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #c9c9cd;
+  color: #3a3a3a;
+}
+
+.chev-wrap svg {
+  transition: transform 0.2s;
+}
+
+.acc[open] .chev-wrap svg {
+  transform: rotate(180deg);
+}
+
+.acc-body {
+  margin: 0;
+  padding-bottom: 16px;
+  text-align: right;
+  font-size: 13px;
+  line-height: 28px;
+  color: #5c5c5c;
+}
+
+.acc-end {
+  border-top: 1px solid #e1e1e4;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-top: 1px solid #e6e6e6;
+}
+
+.safety,
+.perf,
+.desc {
+  border-bottom: 1px solid #ececec;
+}
+
+.safety {
+  padding: 24px 20px;
+}
+
+.safety-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.safety h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #171717;
+}
+
+.rating-side {
+  text-align: right;
+}
+
+.rating-label {
+  margin: 0;
+  font-size: 12px;
+  color: #8a8a8a;
+}
+
+.rating-num {
+  margin: 4px 0 0;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: #171717;
+}
+
+.stars {
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  color: #171717;
+}
+
+.safety-copy {
+  margin: 20px 0 0;
+  max-width: 230px;
+  text-align: left;
+  font-size: 11.5px;
+  line-height: 1.85;
+  color: #8d8d8d;
+}
+
+.perf,
+.desc {
+  padding: 24px 20px;
+}
+
+.info-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.info-tabs label {
+  padding-bottom: 7px;
+  font-size: 13px;
+  color: #2a2a2a;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+}
+
+.info-tabs label:hover {
+  color: #111;
+}
+
+.tab-copy,
+.order-note {
+  display: none;
+}
+
+.tab-copy {
+  margin: 12px 0 0;
+  text-align: right;
+  font-size: 12.5px;
+  line-height: 24px;
+  color: #4a4a4a;
+}
+
+.mail-form {
+  margin-top: 12px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mail-form input[type="email"] {
+  height: 34px;
+  min-width: 0;
+  flex: 1;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  padding: 0 12px;
+  text-align: right;
+  font-size: 12.5px;
+  color: #171717;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.mail-form input[type="email"]::placeholder {
+  text-align: right;
+  color: #b5b5b5;
+}
+
+.mail-form input[type="email"]:focus {
+  border-color: #171717;
+}
+
+.mail-form button {
+  display: inline-flex;
+  height: 34px;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  border: 1px solid #d8d8d8;
+  background: #fff;
+  padding: 0 10px;
+  font-size: 12.5px;
+  color: #171717;
+  cursor: pointer;
+}
+
+.mail-form button:hover {
+  border-color: #111;
+}
+
+.mail-error {
+  display: none;
+  margin: 8px 0 0;
+  text-align: right;
+  font-size: 12px;
+  color: #e82127;
+}
+
+.mail-form:has(input:not(:placeholder-shown):invalid) .mail-error {
+  display: block;
+}
+
+.mail-ok {
+  display: none;
+  margin: 12px 0 0;
+  text-align: right;
+  font-size: 13px;
+  line-height: 24px;
+  color: #171717;
+}
+
+#newsletter-done:target {
+  display: block;
+}
+
+body:has(#newsletter-done:target) .mail-form {
+  display: none;
+}
+
+.desc p {
+  margin: 0;
+  text-align: right;
+  font-size: 12.5px;
+  line-height: 1.95;
+  color: #5a5a5a;
+}
+
+.order {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 28px;
+}
+
+.order-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #171717;
+  padding: 11px 18px;
+  font-size: 13px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.order-btn:hover {
+  background: #000;
+}
+
+.order-btn span {
+  white-space: nowrap;
+}
+
+.order-note {
+  max-width: 240px;
+  text-align: right;
+  font-size: 12.5px;
+  line-height: 24px;
+  color: #333;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: #1a1a1a;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  opacity: 0.55;
+}
+
+#c-white:checked ~ .page .car-white,
+#c-black:checked ~ .page .car-black,
+#c-red:checked ~ .page .car-red,
+#c-gray:checked ~ .page .car-gray,
+#c-blue:checked ~ .page .car-blue {
+  display: block;
+}
+
+#c-white:checked ~ .page .show-white,
+#c-black:checked ~ .page .show-black,
+#c-red:checked ~ .page .show-red,
+#c-gray:checked ~ .page .show-gray,
+#c-blue:checked ~ .page .show-blue {
+  display: flex;
+}
+
+#c-white:checked ~ .page label[for="c-white"] .ring,
+#c-black:checked ~ .page label[for="c-black"] .ring,
+#c-red:checked ~ .page label[for="c-red"] .ring,
+#c-gray:checked ~ .page label[for="c-gray"] .ring,
+#c-blue:checked ~ .page label[for="c-blue"] .ring {
+  box-shadow: 0 0 0 1px #b3b3b3;
+}
+
+#v-75d:checked ~ .page .spec-75d,
+#v-100d:checked ~ .page .spec-100d,
+#v-p100d:checked ~ .page .spec-p100d {
+  display: block;
+}
+
+#v-75d:checked ~ .page .price-75d,
+#v-100d:checked ~ .page .price-100d,
+#v-p100d:checked ~ .page .price-p100d {
+  display: inline;
+}
+
+#v-75d:checked ~ .page label[for="v-75d"],
+#v-100d:checked ~ .page label[for="v-100d"],
+#v-p100d:checked ~ .page label[for="v-p100d"] {
+  font-weight: 600;
+  color: #171717;
+}
+
+#tab-perf:checked ~ .page .msg-perf,
+#tab-drive:checked ~ .page .msg-drive,
+#tab-order:checked ~ .page .msg-order {
+  display: block;
+}
+
+#tab-perf:checked ~ .page label[for="tab-perf"],
+#tab-drive:checked ~ .page label[for="tab-drive"],
+#tab-order:checked ~ .page label[for="tab-order"] {
+  border-bottom-color: #171717;
+  font-weight: 500;
+  color: #171717;
+}
+
+#c-white:checked ~ #v-75d:checked ~ .page #order-ok:target .n-white-75d,
+#c-white:checked ~ #v-100d:checked ~ .page #order-ok:target .n-white-100d,
+#c-white:checked ~ #v-p100d:checked ~ .page #order-ok:target .n-white-p100d,
+#c-black:checked ~ #v-75d:checked ~ .page #order-ok:target .n-black-75d,
+#c-black:checked ~ #v-100d:checked ~ .page #order-ok:target .n-black-100d,
+#c-black:checked ~ #v-p100d:checked ~ .page #order-ok:target .n-black-p100d,
+#c-red:checked ~ #v-75d:checked ~ .page #order-ok:target .n-red-75d,
+#c-red:checked ~ #v-100d:checked ~ .page #order-ok:target .n-red-100d,
+#c-red:checked ~ #v-p100d:checked ~ .page #order-ok:target .n-red-p100d,
+#c-gray:checked ~ #v-75d:checked ~ .page #order-ok:target .n-gray-75d,
+#c-gray:checked ~ #v-100d:checked ~ .page #order-ok:target .n-gray-100d,
+#c-gray:checked ~ #v-p100d:checked ~ .page #order-ok:target .n-gray-p100d,
+#c-blue:checked ~ #v-75d:checked ~ .page #order-ok:target .n-blue-75d,
+#c-blue:checked ~ #v-100d:checked ~ .page #order-ok:target .n-blue-100d,
+#c-blue:checked ~ #v-p100d:checked ~ .page #order-ok:target .n-blue-p100d {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .header {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .model-title {
+    font-size: 40px;
+  }
+
+  .price {
+    font-size: 25px;
+  }
+
+  .euro {
+    font-size: 19px;
+  }
+
+  .stage {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .gallery-bar {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .specs-inner {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .spec-row,
+  .more-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+  }
+
+  .spec-row {
+    row-gap: 0;
+  }
+
+  .safety,
+  .perf,
+  .desc {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .order {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bottom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .safety {
+    border-inline-end: 1px solid #ececec;
+  }
+
+  .perf {
+    border-inline-end: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav {
+    display: none;
+  }
+
+  .desktop-nav {
+    display: flex;
+    height: 64px;
+    align-items: center;
+    gap: 32px;
+    padding: 0 32px;
+  }
+
+  .desktop-nav nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .panel-toolbar {
+    display: flex;
+    position: relative;
+    height: 64px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 28px;
+  }
+
+  .layout {
+    grid-template-columns: minmax(0, 1.63fr) minmax(280px, 1fr);
+  }
+
+  .header {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .stage {
+    min-height: 300px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .gallery-bar {
+    padding: 0 32px 24px;
+  }
+
+  .specs {
+    border-top: 0;
+    border-left: 1px solid #e4e4e6;
+  }
+
+  .specs-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .bottom {
+    grid-template-columns: 0.92fr 1.15fr 1.28fr auto;
+  }
+
+  .safety,
+  .perf,
+  .desc {
+    border-bottom: 0;
+    border-inline-end: 1px solid #ececec;
+  }
+
+  .safety {
+    padding: 28px 32px;
+  }
+
+  .perf,
+  .desc {
+    padding: 28px;
+  }
+
+  .order {
+    align-items: flex-start;
+    padding: 40px 28px 28px;
+  }
+
+  .order-wrap {
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: 1280px) {
+  .desktop-nav {
+    padding: 0 40px;
+  }
+
+  .panel-toolbar {
+    padding: 0 32px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <input class="ctrl" type="radio" name="color" id="c-white" tabindex="-1" checked />
+    <input class="ctrl" type="radio" name="color" id="c-black" tabindex="-1" />
+    <input class="ctrl" type="radio" name="color" id="c-red" tabindex="-1" />
+    <input class="ctrl" type="radio" name="color" id="c-gray" tabindex="-1" />
+    <input class="ctrl" type="radio" name="color" id="c-blue" tabindex="-1" />
+
+    <input class="ctrl" type="radio" name="variant" id="v-75d" tabindex="-1" />
+    <input class="ctrl" type="radio" name="variant" id="v-100d" tabindex="-1" />
+    <input class="ctrl" type="radio" name="variant" id="v-p100d" tabindex="-1" checked />
+
+    <input class="ctrl" type="radio" name="info" id="tab-perf" tabindex="-1" checked />
+    <input class="ctrl" type="radio" name="info" id="tab-drive" tabindex="-1" />
+    <input class="ctrl" type="radio" name="info" id="tab-order" tabindex="-1" />
+
+    <div class="page">
+      <div class="mobile-nav">
+        <span class="wordmark" dir="ltr" style="font-size: 13.5px" aria-label="Tesla">
+          <span>T</span><span>E</span><span>S</span><span>L</span><span>A</span>
+        </span>
+        <div class="nav-cluster">
+          <details class="drop">
+            <summary dir="ltr">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              <span dir="rtl">فارسی</span>
+            </summary>
+            <div class="drop-menu lang-menu">
+              <span>فارسی</span>
+            </div>
+          </details>
+          <details class="drop menu-btn">
+            <summary aria-label="منو">
+              <span class="dots-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            </summary>
+            <div class="drop-menu" style="left: 0">
+              <a href="#newsletter-email">تماس با ما</a>
+              <a href="#description">رویدادها</a>
+              <a href="#performance">تست رانندگی</a>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div class="layout">
+        <section class="product">
+          <div class="desktop-nav">
+            <span class="wordmark" dir="ltr" style="font-size: 14.5px" aria-label="Tesla">
+              <span>T</span><span>E</span><span>S</span><span>L</span><span>A</span>
+            </span>
+            <nav aria-label="ناوبری اصلی">
+              <a class="nav-link" dir="rtl" href="#newsletter-email">تماس با ما</a>
+              <a class="nav-link" dir="rtl" href="#description">رویدادها</a>
+              <a class="nav-link" dir="rtl" href="#performance">تست رانندگی</a>
+            </nav>
+          </div>
+
+          <div class="header">
+            <div>
+              <p class="tesla-label mixed" dir="ltr">Tesla</p>
+              <h1 class="model-title" dir="rtl">مدل <span class="mixed" dir="ltr">S</span></h1>
+              <nav class="crumbs" dir="rtl" aria-label="مسیر">
+                <span>مدل‌ها</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                <span>مدل <span class="mixed" dir="ltr">S</span></span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                <span>سدان</span>
+              </nav>
+            </div>
+            <div class="price-block">
+              <p class="price mixed" dir="ltr">
+                <span class="euro">€</span>
+                <span class="price-val price-75d">۹۸٬۹۰۰</span>
+                <span class="price-val price-100d">۱۱۲٬۹۰۰</span>
+                <span class="price-val price-p100d">۱۲۴٬۲۳۰</span>
+              </p>
+              <p class="cash" dir="rtl">قیمت نقدی</p>
+            </div>
+          </div>
+
+          <div class="gallery">
+            <div class="stage">
+              <img class="car car-white" src="./vehicles/white.jpg" alt="تسلا مدل S به رنگ سفید" draggable="false" />
+              <img class="car car-black" src="./vehicles/black.jpg" alt="تسلا مدل S به رنگ مشکی" draggable="false" />
+              <img class="car car-red" src="./vehicles/red.jpg" alt="تسلا مدل S به رنگ قرمز" draggable="false" />
+              <img class="car car-gray" src="./vehicles/gray.jpg" alt="تسلا مدل S به رنگ خاکستری" draggable="false" />
+              <img class="car car-blue" src="./vehicles/blue.jpg" alt="تسلا مدل S به رنگ آبی" draggable="false" />
+            </div>
+
+            <div class="gallery-bar">
+              <div class="side">
+                <label class="round-btn show-white" for="c-blue" aria-label="تصویر قبلی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </label>
+                <label class="round-btn show-black" for="c-white" aria-label="تصویر قبلی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </label>
+                <label class="round-btn show-red" for="c-black" aria-label="تصویر قبلی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </label>
+                <label class="round-btn show-gray" for="c-red" aria-label="تصویر قبلی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </label>
+                <label class="round-btn show-blue" for="c-gray" aria-label="تصویر قبلی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </label>
+              </div>
+
+              <div class="dots" role="radiogroup" aria-label="رنگ بدنه">
+                <label class="dot" for="c-white" aria-label="سفید">
+                  <span class="ring"><span class="swatch" style="background:#f4f4f4;box-shadow:inset 0 0 0 1px #d2d2d2"></span></span>
+                </label>
+                <label class="dot" for="c-black" aria-label="مشکی">
+                  <span class="ring"><span class="swatch" style="background:#171717"></span></span>
+                </label>
+                <label class="dot" for="c-red" aria-label="قرمز">
+                  <span class="ring"><span class="swatch" style="background:#e82127"></span></span>
+                </label>
+                <label class="dot" for="c-gray" aria-label="خاکستری">
+                  <span class="ring"><span class="swatch" style="background:#858585"></span></span>
+                </label>
+                <label class="dot" for="c-blue" aria-label="آبی">
+                  <span class="ring"><span class="swatch" style="background:#4285c5"></span></span>
+                </label>
+              </div>
+
+              <div class="side">
+                <label class="round-btn show-white" for="c-black" aria-label="تصویر بعدی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </label>
+                <label class="round-btn show-black" for="c-red" aria-label="تصویر بعدی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </label>
+                <label class="round-btn show-red" for="c-gray" aria-label="تصویر بعدی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </label>
+                <label class="round-btn show-gray" for="c-blue" aria-label="تصویر بعدی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </label>
+                <label class="round-btn show-blue" for="c-white" aria-label="تصویر بعدی">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="specs">
+          <div class="panel-toolbar">
+            <details class="drop">
+              <summary dir="ltr" style="font-size: 13.5px; color: #2a2a2a; gap: 6px">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#444" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                <span dir="rtl">فارسی</span>
+              </summary>
+              <div class="drop-menu lang-menu desktop">
+                <span>فارسی</span>
+              </div>
+            </details>
+            <details class="drop menu-btn">
+              <summary aria-label="منو">
+                <span class="dots-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+              </summary>
+              <div class="drop-menu" style="top: 40px; left: 0">
+                <a href="#newsletter-email">تماس با ما</a>
+                <a href="#description">رویدادها</a>
+                <a href="#performance">تست رانندگی</a>
+              </div>
+            </details>
+          </div>
+
+          <div class="specs-inner">
+            <div class="specs-head">
+              <h2 dir="rtl">مشخصات</h2>
+              <div class="variant-tabs mixed" dir="ltr" role="tablist" aria-label="نسخه خودرو">
+                <label for="v-75d">75D</label>
+                <label for="v-100d">100D</label>
+                <label for="v-p100d">P100D</label>
+              </div>
+            </div>
+
+            <div class="spec-set spec-75d">
+              <div class="spec-row">
+                <div class="spec-item"><p class="spec-label" dir="rtl">ظرفیت باتری</p><p class="spec-value" dir="rtl">۷۵ کیلووات‌ساعت</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">برد مسافت</p><p class="spec-value" dir="rtl">۴۱۷ کیلومتر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">شتاب</p><p class="spec-value" dir="rtl">۴٫۴ ثانیه (۰ تا ۱۰۰ کیلومتر/ساعت)</p></div>
+              </div>
+              <div class="spec-row second">
+                <div class="spec-item"><p class="spec-label" dir="rtl">قدرت موتور</p><p class="spec-value" dir="rtl">۵۱۸ اسب‌بخار</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">گشتاور</p><p class="spec-value" dir="rtl">۶۶۰ نیوتن‌متر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">حداکثر سرعت</p><p class="spec-value" dir="rtl">۲۲۵ کیلومتر/ساعت</p></div>
+              </div>
+              <details class="more">
+                <summary>
+                  <svg class="ico-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <svg class="ico-minus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  <span dir="rtl">جزئیات بیشتر</span>
+                </summary>
+                <div class="more-grid">
+                  <div class="spec-item"><p class="spec-label" dir="rtl">نوع محرک</p><p class="spec-value" dir="rtl">دو موتوره، تمام‌چرخ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">شارژ سریع</p><p class="spec-value" dir="rtl">۴۰ دقیقه تا ۸۰٪</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">وزن تقریبی</p><p class="spec-value" dir="rtl">۲٬۰۹۰ کیلوگرم</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">تعداد صندلی</p><p class="spec-value" dir="rtl">۵ نفر</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">چرخ‌ها</p><p class="spec-value" dir="rtl">۲۱ اینچ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">ضمانت باتری</p><p class="spec-value" dir="rtl">۸ سال</p></div>
+                </div>
+              </details>
+            </div>
+
+            <div class="spec-set spec-100d">
+              <div class="spec-row">
+                <div class="spec-item"><p class="spec-label" dir="rtl">ظرفیت باتری</p><p class="spec-value" dir="rtl">۱۰۰ کیلووات‌ساعت</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">برد مسافت</p><p class="spec-value" dir="rtl">۵۷۲ کیلومتر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">شتاب</p><p class="spec-value" dir="rtl">۳٫۸ ثانیه (۰ تا ۱۰۰ کیلومتر/ساعت)</p></div>
+              </div>
+              <div class="spec-row second">
+                <div class="spec-item"><p class="spec-label" dir="rtl">قدرت موتور</p><p class="spec-value" dir="rtl">۶۰۳ اسب‌بخار</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">گشتاور</p><p class="spec-value" dir="rtl">۸۶۰ نیوتن‌متر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">حداکثر سرعت</p><p class="spec-value" dir="rtl">۲۵۰ کیلومتر/ساعت</p></div>
+              </div>
+              <details class="more">
+                <summary>
+                  <svg class="ico-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <svg class="ico-minus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  <span dir="rtl">جزئیات بیشتر</span>
+                </summary>
+                <div class="more-grid">
+                  <div class="spec-item"><p class="spec-label" dir="rtl">نوع محرک</p><p class="spec-value" dir="rtl">دو موتوره، تمام‌چرخ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">شارژ سریع</p><p class="spec-value" dir="rtl">۴۰ دقیقه تا ۸۰٪</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">وزن تقریبی</p><p class="spec-value" dir="rtl">۲٬۲۰۰ کیلوگرم</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">تعداد صندلی</p><p class="spec-value" dir="rtl">۵ نفر</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">چرخ‌ها</p><p class="spec-value" dir="rtl">۲۱ اینچ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">ضمانت باتری</p><p class="spec-value" dir="rtl">۸ سال</p></div>
+                </div>
+              </details>
+            </div>
+
+            <div class="spec-set spec-p100d">
+              <div class="spec-row">
+                <div class="spec-item"><p class="spec-label" dir="rtl">ظرفیت باتری</p><p class="spec-value" dir="rtl">۱۰۰ کیلووات‌ساعت</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">برد مسافت</p><p class="spec-value" dir="rtl">۶۱۳ کیلومتر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">شتاب</p><p class="spec-value" dir="rtl">۲٫۷ ثانیه (۰ تا ۱۰۰ کیلومتر/ساعت)</p></div>
+              </div>
+              <div class="spec-row second">
+                <div class="spec-item"><p class="spec-label" dir="rtl">قدرت موتور</p><p class="spec-value" dir="rtl">۷۶۲ اسب‌بخار</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">گشتاور</p><p class="spec-value" dir="rtl">۹۳۱ نیوتن‌متر</p></div>
+                <div class="spec-item"><p class="spec-label" dir="rtl">حداکثر سرعت</p><p class="spec-value" dir="rtl">۲۵۰ کیلومتر/ساعت</p></div>
+              </div>
+              <details class="more">
+                <summary>
+                  <svg class="ico-plus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <svg class="ico-minus" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  <span dir="rtl">جزئیات بیشتر</span>
+                </summary>
+                <div class="more-grid">
+                  <div class="spec-item"><p class="spec-label" dir="rtl">نوع محرک</p><p class="spec-value" dir="rtl">دو موتوره عملکردی، تمام‌چرخ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">شارژ سریع</p><p class="spec-value" dir="rtl">۳۵ دقیقه تا ۸۰٪</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">وزن تقریبی</p><p class="spec-value" dir="rtl">۲٬۲۴۱ کیلوگرم</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">تعداد صندلی</p><p class="spec-value" dir="rtl">۵ نفر</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">چرخ‌ها</p><p class="spec-value" dir="rtl">۲۱ اینچ</p></div>
+                  <div class="spec-item"><p class="spec-label" dir="rtl">ضمانت باتری</p><p class="spec-value" dir="rtl">۸ سال</p></div>
+                </div>
+              </details>
+            </div>
+
+            <div class="acc-wrap">
+              <details class="acc">
+                <summary>
+                  <span class="acc-title" dir="rtl">خودران</span>
+                  <span class="chev-wrap" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="acc-body" dir="rtl">سیستم خودران پیشرفته با حفظ خودرو بین خطوط، کنترل تطبیقی سرعت و تغییر خطوط، رانندگی در بزرگراه را آرام‌تر و دقیق‌تر می‌کند.</p>
+              </details>
+              <details class="acc">
+                <summary>
+                  <span class="acc-title" dir="rtl">فضای داخلی</span>
+                  <span class="chev-wrap" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </span>
+                </summary>
+                <p class="acc-body" dir="rtl">کابین مینیمال با نمایشگر افقی، صندلی‌های چرمی و فضای بار جلو و عقب، پنج سرنشین را در سکوت و راحتی جا می‌دهد.</p>
+              </details>
+              <div class="acc-end"></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="bottom" id="bottom-info">
+        <div class="safety">
+          <div class="safety-row">
+            <h3 dir="rtl">ایمنی</h3>
+            <div class="rating-side">
+              <p class="rating-label" dir="rtl">رتبه کلی ایمنی</p>
+              <p class="rating-num mixed" dir="ltr">۵٫۰</p>
+              <div class="stars mixed" dir="ltr" aria-label="پنج ستاره">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+            </div>
+          </div>
+          <p class="safety-copy" dir="rtl">مدل S موفق به دریافت بالاترین رتبه ایمنی از آزمون‌های تصادف شده است.</p>
+        </div>
+
+        <div class="perf" id="performance">
+          <div class="info-tabs" dir="rtl" role="tablist" aria-label="اطلاعات محصول">
+            <label for="tab-perf">عملکرد</label>
+            <label for="tab-drive">تست رانندگی</label>
+            <label for="tab-order">سفارش</label>
+          </div>
+          <p class="tab-copy msg-perf" dir="rtl">برای دریافت آخرین به‌روزرسانی‌ها عضو شوید.</p>
+          <p class="tab-copy msg-drive" dir="rtl">برای هماهنگی تست رانندگی، ایمیل خود را وارد کنید.</p>
+          <p class="tab-copy msg-order" dir="rtl">برای پیگیری سفارش، ایمیل خود را ثبت کنید.</p>
+          <form class="mail-form" dir="rtl" action="#newsletter-done" method="get">
+            <div class="form-row">
+              <input id="newsletter-email" name="email" type="email" inputmode="email" autocomplete="email" dir="ltr" required placeholder="ایمیل خود را وارد کنید" aria-label="ایمیل" />
+              <button type="submit" dir="rtl">
+                <span>عضویت</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </button>
+            </div>
+            <p class="mail-error" dir="rtl">لطفاً یک ایمیل معتبر وارد کنید.</p>
+          </form>
+          <p id="newsletter-done" class="mail-ok" dir="rtl">عضویت شما با موفقیت انجام شد.</p>
+        </div>
+
+        <div class="desc" id="description">
+          <p dir="rtl">
+            مدل S ترکیبی از عملکرد بی‌نظیر، برد مسافت استاندارد و ایمنی پیشرفته، یکی از
+            قدرتمندترین خودروهای برقی جهان است. این خودرو با شتاب فوق‌العاده، فناوری‌های
+            پیشرفته و امکانات مدرن، تجربه‌ای بی‌نظیر از رانندگی را ارائه می‌دهد. مدل S
+            خودروی تمام‌برقی با عملکرد بالا است.
+          </p>
+        </div>
+
+        <div class="order">
+          <div class="order-wrap">
+            <a class="order-btn" href="#order-ok" dir="rtl">
+              <span>همین حالا سفارش دهید</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            </a>
+            <div id="order-ok">
+              <p class="order-note n-white-75d" dir="rtl">سفارش مدل S نسخه 75D به رنگ سفید ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-white-100d" dir="rtl">سفارش مدل S نسخه 100D به رنگ سفید ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-white-p100d" dir="rtl">سفارش مدل S نسخه P100D به رنگ سفید ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-black-75d" dir="rtl">سفارش مدل S نسخه 75D به رنگ مشکی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-black-100d" dir="rtl">سفارش مدل S نسخه 100D به رنگ مشکی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-black-p100d" dir="rtl">سفارش مدل S نسخه P100D به رنگ مشکی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-red-75d" dir="rtl">سفارش مدل S نسخه 75D به رنگ قرمز ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-red-100d" dir="rtl">سفارش مدل S نسخه 100D به رنگ قرمز ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-red-p100d" dir="rtl">سفارش مدل S نسخه P100D به رنگ قرمز ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-gray-75d" dir="rtl">سفارش مدل S نسخه 75D به رنگ خاکستری ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-gray-100d" dir="rtl">سفارش مدل S نسخه 100D به رنگ خاکستری ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-gray-p100d" dir="rtl">سفارش مدل S نسخه P100D به رنگ خاکستری ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-blue-75d" dir="rtl">سفارش مدل S نسخه 75D به رنگ آبی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-blue-100d" dir="rtl">سفارش مدل S نسخه 100D به رنگ آبی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+              <p class="order-note n-blue-p100d" dir="rtl">سفارش مدل S نسخه P100D به رنگ آبی ثبت شد. کارشناسان ما به‌زودی با شما تماس می‌گیرند.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
